@@ -1,7 +1,8 @@
 smartbe <- function(fname, channel=1){
-  headsep <- which(readLines(fname) == "========================================================")
-  headsep <- ifelse(length(headsep)==0,-1,headsep) # Blaskó Zoli törölte
-  channelsep <- which(readLines(fname) == "--------------------------------------------------------")
+  ## Read raw data
+  raw.data <- readLines(fname, encoding = "latin1")
+  headsep <- which(raw.data == "========================================================")
+  channelsep <- which(raw.data == "--------------------------------------------------------")
   head.length <- 8
   if(channel == 1){
     ch.start <- channelsep[1]+head.length
