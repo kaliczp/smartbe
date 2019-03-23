@@ -12,7 +12,7 @@ smartbe <- function(fname, channel=1){
     ch.end <- channelsep[1]-(headsep+head.length+1)
   }
   data <- scan(fname, what=list(NULL,"",NULL,NULL,NULL,NULL,numeric()),
-               skip= ch.start , nlines=ch.end, sep="\t",
+               skip= ch.start , nlines=ch.end, sep="\t", na.strings = "?",
                fill=T,fileEncoding="latin1")
   data.frame(DateTime = data[[2]], Measure = data[[7]])
 }
